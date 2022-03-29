@@ -9,7 +9,7 @@ catch [Exception] {
     Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
 }
 
-$SCOOP_ROOT if ($env:SCOOP) {$env:SCOOP} else {"$home\scoop"}
+$SCOOP_ROOT = if ($env:SCOOP) {$env:SCOOP} else {"$home\scoop"}
 
 # install basic module
 scoop install aria2
@@ -28,7 +28,9 @@ scoop install googlechrome
 
 # vscode
 scoop install vscode
-reg import $SCOOP_ROOT\apps\vscode\current\vscode-install-context.reg
+# error発生
+# ファイルがあるかを確認
+#reg import $SCOOP_ROOT\apps\vscode\current\vscode-install-context.reg
 
 # slack
 scoop install slack
