@@ -1,0 +1,11 @@
+{
+  // ブランケットペア表示
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "editor.guides.brancketPairs": true,
+  // フォルダ表示
+  "workbench.tree.renderIndentGuides": "always",
+  "workbench.tree.indent": 16,
+  // scroll
+  "edotor.cursorBlinking": "expand",
+  "editor.cursorSmoothCaretAnimation": true
+}
