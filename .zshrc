@@ -99,7 +99,7 @@ if [[ $(command -v exa)  ]]; then
 fi
 alias sl=ls
 alias dc=cd
-alias ..='cd ..'
+alias ..='cd ../'
 
 # bat
 zinit ice as"program" from"gh-r" mv"bat* -> bat" pick"bat/bat" bpick"*unknown-linux-musl*"
