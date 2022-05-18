@@ -24,6 +24,12 @@ vk1D & i::
     Send ^{Right}
     return
 ; -----------------------------------
+; word select
+; -----------------------------------
+vk1D & w::
+    Send ^{Right}{ShiftDown}^{Left}{ShiftUp}
+    return
+; -----------------------------------
 ; コロン(vkBA)とセミコロン(vkBB)とスペースをEnter
 ; -----------------------------------
 vk1D & vkBa::Enter 
@@ -37,10 +43,10 @@ vk1D & e::End
 vk1D & n::BS
 vk1D & m::Del
 ; -----------------------------------
-; カーソル位置から行末まで削除
+; 行をコピー＋削除
 ; -----------------------------------
 vk1D & o::
-    send {ShiftDown}{End}{ShiftUp}
+    send {Home}{ShiftDown}{End}{ShiftUp}
     send ^c
     send {Del}
     return
