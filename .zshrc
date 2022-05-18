@@ -13,12 +13,11 @@ export PATH=$PATH:$HOME/.pyenv/bin
 export PATH="$HOME/.poetry/bin:$PATH"
 export PATH=$PATH:$HOME/bin
 
-eval "$(pyenv init --path)"
 
-if [ -x "`which go`" ]; then
-    export GOPATH=$HOME/go
-    export PATH="$GOPATH/bin:$PATH"
-fi
+#if [ -x "`which go`" ]; then
+#    export GOPATH=$HOME/go
+#    export PATH="$GOPATH/bin:$PATH"
+#fi
 
 # cd bookmark config
 # cd @ + dirname
@@ -72,11 +71,12 @@ zinit light-mode for \
 # ----------------------------------------------------------------------
 
 # ripgrep
-zinit ice as"program" from"gh-r" mv"ripgres* -> rg" pick"rg/rg"
+zinit ice as"program" from"gh-r" mv"ripgrep* -> rg" pick"rg/rg"
 zinit light BurntSushi/ripgrep
 
 # exa 
-zinit ice as"program" from"gh-r" mv"exa* -> exa"
+#zinit ice as"program" from"gh-r" mv"exa* -> exa" pick "bin/exa"
+zinit ice as"program" from"gh-r" mv"bin/exa* -> exa"
 zinit light ogham/exa
 
 if [[ $(command -v exa)  ]]; then
@@ -98,7 +98,6 @@ if [[ $(command -v exa)  ]]; then
     alias ltl="lt | less -r"
 fi
 alias sl=ls
-alias dc=cd
 alias ..='cd ../'
 
 # bat
@@ -113,7 +112,19 @@ fi
 zinit ice as"program" from"gh-r" mv"fd* -> fd" pick"fd/fd"
 zinit light sharkdp/fd
 
+# ytop
+zinit ice as"program" from"gh-r" mv"ytop* -> ytop" pick"cjbassi/ytop"
+zinit light cjbassi/ytop
+
 ### end of rust tools
+
+zinit ice from"gh-r" as"program"
+zinit light junegunn/fzf
+
+zinit ice atclone'PYENV_ROOT="$PWD" ./libexec/pyenv init - > zpyenv.zsh' \
+    atinit'export PYENV_ROOT="$PWD"' atpull"%atclone" \
+    as'command' pick'bin/pyenv' src"zpyenv.zsh" nocompile'!'
+zinit light pyenv/pyenv
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -285,3 +296,4 @@ alias de='docker exec -it $(docker ps | peco | cut -d " " -f 1) /bin/bash'
 
 eval "$(starship init zsh)"
 
+eval "$(pyenv init --path)"
