@@ -229,7 +229,7 @@ alias szsh="source ~/.zshrc"
 # ----------------------------------------------------------------------
 
 # コマンド補完
-autoload -Uz compinit && compinit
+autoload -Uz compinit
 
 # 小文字でも大文字にマッチ
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
